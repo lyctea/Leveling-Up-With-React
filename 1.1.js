@@ -4,4 +4,8 @@ var Home = React.createClass({
     }
 });
 
-render(<Home />,document.getElementById('root'));
+render(
+    <Router>
+        <Route path="/" component={Home} />
+    </Router>,
+    document.getElementById('root'));
