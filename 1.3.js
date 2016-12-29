@@ -60,7 +60,22 @@ var UserList = React.createClass({
 ReactDOM.render((
     <Router>
         <Route component={MainLayout}>
-            <Route path="/" component={Home}></Route>
+            <Route path="/" component={Home} />
+            <Route component={SearchLayout}>
+                <Route path="users" component={UserList} />
+                <Route path="widgets" component={WidgetList} />
+            </Route>
+        </Route>
+    </Router>
+),document.getElementById('root'));
+
+/*SearchLayout有两个子路由的时候,将会加载各自的组件到SearchLayout中
+* 与此同时Home将会直接放置进MainLayout组件中*/
+
+ReactDOM.render((
+    <Router>
+        <Route path="/" component={MainLayout}>
+            <IndexRoute component={Home} />
             <Route component={SearchLayout}>
                 <Route path="users" component={UserList} />
                 <Route path="widgets" component={WidgetList} />
