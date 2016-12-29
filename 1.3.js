@@ -50,3 +50,19 @@ var UserList = React.createClass({
         );
     }
 });
+
+
+
+/*利用router实现组件嵌套使用:
+    当用户浏览到/users 路径是, React路由将会放置UserList到SearchLyaout组件中,
+*   同时将SearchLyaout放置进MainLayout组件中,最后的结果是将会有三个组件嵌套放置
+*   进'root'节点中*/
+ReactDOM.render((
+    <Router>
+        <Route component={MainLayout}>
+            <Route component={SearchLayout}>
+                <Route path="users" component={UserList}></Route>
+            </Route>
+        </Route>
+    </Router>
+),document.getElementById('root'));
