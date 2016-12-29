@@ -60,8 +60,10 @@ var UserList = React.createClass({
 ReactDOM.render((
     <Router>
         <Route component={MainLayout}>
+            <Route path="/" component={Home}></Route>
             <Route component={SearchLayout}>
-                <Route path="users" component={UserList}></Route>
+                <Route path="users" component={UserList} />
+                <Route path="widgets" component={WidgetList} />
             </Route>
         </Route>
     </Router>
